@@ -4,14 +4,21 @@ window.onload = () => {
         element.onclick = () => {
             var target = element.getAttribute("data-gte-targe"); 
             var offset = element.getAttribute("data-gte-offset"); 
-            console.log(target);
-            console.log(offset);
+            
+            if (target) {
+                const scrollTarget = document.getElementById(target);
+                window.scrollTo({
+                    top: scrollTarget.offsetTop - offset,
+                    behavior: "smooth"
+                });
+            }
         }
     }
     var goToTop = document.getElementById("go-to-top");
     
     goToTop.onclick = () => {
-        window.scrollTo({top: 0});
+        window.scrollTo({top: 0,
+        behavior:'smooth'});
     }
 
 }
